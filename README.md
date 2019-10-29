@@ -3,9 +3,9 @@
 🏴‍☠️ Web scrape Meetup.com now that they have locked down their API. 😤
 
 In August 2019, Meetup.com shutdown open access their API. In order to gain access
-to the API you needed to apply. In order to apply, you needed to pay for a PRO account. This action hurt individual groups, like the Coffee Club of Seattle, which used the API to help organizers use historical data to schedule new events.
+to the API you now needed to apply and get approval. And in order to apply, you needed to pay for a 💸PRO account💸. This action hurt individual groups, like the [Coffee Club of Seattle](https://www.meetup.com/seattle-coffee-club/), which used the API to help organizers use historical data to schedule new events.
 
-Without access to the API, one now needs to scrape the website to get event details.
+Without access to the API, one now needs to scrape the website to get event details. Let's get started! 💪🏻
 
 ## Last 10 Events
 
@@ -13,7 +13,7 @@ Every public Meetup group has a page with their last 10 events.
 
 Example [https://www.meetup.com/seattle-coffee-club/events/past/]
 
-**getEventHistory.js** will scrape that page to pull out the eventID from the _a.eventCard--link element_. My sample code adds the eventID to a MySQL table for processing.
+**getEventHistory.js** will scrape that page to pull out the eventID from the _a.eventCard--link element_. My sample code adds the eventID to a MySQL table for processing in the next step.
 
 ## Event Detail
 
