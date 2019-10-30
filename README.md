@@ -25,6 +25,18 @@ On this page, we will scrape to pull up all the details related to the event and
 
 Once the data is pulled, this code will save a JSON file locally. You can process your JSON in whatever way is best for your situation.
 
+## Combine Both Steps
+
+**getEventHistoryAndJSON.js** combines both steps.
+
+## Most Scrapes Work
+
+On the first 20 scrapes, the code was able to pull full event and venue details for 19. One was returned as a partial with missing data. If I can improve the scraper, I'll update this repo.
+
+## FTP the JSON files to a Web Server
+
+**processEventJSON.js** takes the event JSON files in the /json/ folder and FTPs them up to a webserver. Then it places that file into a sent folder.
+
 ## More Ideas
 
 I used the Last 10 page for my group, because we have all the legacy data saved for over 1,300 events going back to 2006. If I didn't have that data, I'd look into scraping the monthly pages.
