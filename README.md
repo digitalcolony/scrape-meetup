@@ -33,6 +33,8 @@ Once the data is pulled, this code will save a JSON file locally. You can proces
 
 On the first 20 scrapes, the code was able to pull full event and venue details for 19. One was returned as a partial with missing data. If I can improve the scraper, I'll update this repo.
 
+The risk with any scraper is that it only works until the website gets redesigned. At which point, the code will need to be modified to work with the new layout.
+
 ## FTP the JSON files to a Web Server
 
 **processEventJSON.js** takes the event JSON files in the /json/ folder and FTPs them up to a webserver. Then it places that file into a sent folder.
