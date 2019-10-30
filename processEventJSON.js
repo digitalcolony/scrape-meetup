@@ -9,6 +9,7 @@ const jsonEventsFolderLocalSent = `./json/sent/`;
 const jsonEventsFolderServer = process.env["FTP_JSON_FOLDER"];
 let localFile;
 let serverFile;
+let jsonCount = 0;
 
 const UploadEventJSONFiles = async () => {
   const c = new Client();
@@ -17,6 +18,7 @@ const UploadEventJSONFiles = async () => {
       if (err) console.log(err);
 
       if (stats.isFile()) {
+        jsonCount++;
         localFile = `${jsonEventsFolderLocal}${file}`;
         serverFile = `${jsonEventsFolderServer}${file}`;
         c.put(localFile, serverFile, function(err) {
@@ -70,7 +72,9 @@ const emailMichael = async () => {
     from: process.env["EMAIL"],
     to: process.env["EMAIL"],
     subject: "Coffee Club EVENT uploaded",
-    text: `In the queue! => ${process.env["URL_QUEUE"]}`
+    text: `Meetup Event(s) have been added to the queue! => ${
+      process.env["URL_QUEUE"]
+    }`
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
@@ -84,11 +88,16 @@ const emailMichael = async () => {
 
 const moveJSONEvents = async () => {
   const goUpload = await UploadEventJSONFiles();
-  //TODO: learn how to wait properly
-  await delay(40000); //40 sec
+  await delay(30000); //30 sec
   const goProcess = await ProcessEventJSONFiles();
   await delay(1000);
-  const goEmail = await emailMichael();
+  if (jsonCount > 0) {
+    const goEmail = await emailMichael();
+  } else {
+    console.log(`Queue empty. No email sent`);
+  }
+  await delay(3000);
+  process.exit();
 };
 
 moveJSONEvents();

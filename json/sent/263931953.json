@@ -1,0 +1,36 @@
+{
+    "@context": "http://schema.org",
+    "@type": "Event",
+    "name": "Sunday coffee at Ada's Discovery Cafe (CAPITOL HILL)",
+    "url": "https://www.meetup.com/seattle-coffee-club/events/263931953/",
+    "description": "I thought we'd get some coffee in before checking out the Broadway Farmers Market then check out the Bunka Gakuen Fashion Show from Tokyo, Japan at the Broadway Performance Hall at 3 pm.\nRoaster: Olympia\n\nhttps://seattlefarmersmarkets.org/markets/broadway\nhttps://bwu.bunka.ac.jp/languages/english/info/?post_id=4914\n\nBuses: 2, 9, 11, 49, 60, & First Hill Streetcar.\nNearby buses: 8, 10, 12, 47, 454 & Sound Transit Light Rail.\n\nI have reserved some free fashion show tickets for the 3pm show but if ",
+    "startDate": "2019-09-15T12:00-07:00",
+    "endDate": "2019-09-15T15:00-07:00",
+    "location": {
+        "@type": "Place",
+        "name": "Ada's Discovery Cafe",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "800 E Thomas St",
+            "addressLocality": "Seattle",
+            "postalCode": "98102",
+            "addressRegion": "WA",
+            "addressCountry": "USA"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 47.621280670166016,
+            "longitude": -122.32173919677734
+        }
+    },
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "organizer": {
+        "@type": "Organization",
+        "name": "Coffee Club of Seattle",
+        "url": "https://www.meetup.com/seattle-coffee-club/"
+    }
+}
