@@ -14,14 +14,15 @@ let jsonCount = 0;
 const UploadEventJSONFiles = async () => {
   const c = new Client();
   fs.readdirSync(jsonEventsFolderLocal).forEach(file => {
-    fs.stat(`${jsonEventsFolderLocal}${file}`, function(err, stats) {
+    fs.stat(`${jsonEventsFolderLocal}${file}`, function (err, stats) {
       if (err) console.log(err);
 
       if (stats.isFile()) {
         jsonCount++;
         localFile = `${jsonEventsFolderLocal}${file}`;
         serverFile = `${jsonEventsFolderServer}${file}`;
-        c.put(localFile, serverFile, function(err) {
+        
+        c.put(localFile, serverFile, function (err) {
           if (err) throw err;
           console.log(`>> FTPing ${file}`);
           c.end();
@@ -42,7 +43,7 @@ const ProcessEventJSONFiles = async () => {
   // The original is then deleted
 
   fs.readdirSync(jsonEventsFolderLocal).forEach(file => {
-    fs.stat(`${jsonEventsFolderLocal}${file}`, function(err, stats) {
+    fs.stat(`${jsonEventsFolderLocal}${file}`, function (err, stats) {
       if (stats.isFile()) {
         fs.copyFileSync(
           `${jsonEventsFolderLocal}${file}`,
@@ -72,12 +73,12 @@ const emailMichael = async () => {
     from: process.env["EMAIL"],
     to: process.env["EMAIL"],
     subject: "Coffee Club EVENT uploaded",
-    text: `Meetup Event(s) have been added to the queue! => ${
+    text: `Meetup Event(s) have been added to the queue! (${jsonCount})=> ${
       process.env["URL_QUEUE"]
-    }`
+      }`
   };
 
-  transporter.sendMail(mailOptions, function(error, info) {
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {

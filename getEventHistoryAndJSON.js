@@ -17,6 +17,8 @@ function getHistory() {
   // Will scrape the eventIDs for the last 10 events
   // and add them to a Queue table on MySQL
 
+  let eventCount = 0;
+
   axios
     .get("https://www.meetup.com/seattle-coffee-club/events/past/")
     .then(response => {
@@ -26,7 +28,8 @@ function getHistory() {
       $("a.eventCard--link").each((index, value) => {
         var link = $(value).attr("href");
         let eventID = link.replace(/\D/g, "");
-        console.log(eventID);
+        eventCount++;
+        console.log(`${eventCount}: ${eventID}`);
         const insertSQL = `CALL spAddCCEventQueue (?)`;
         connection.query(insertSQL, [eventID], function(
           error,
@@ -47,6 +50,7 @@ function getQueue() {
         var row = results[key];
         scrapeEvent(row.eventID);
       });
+      connection.end();
     }
   );
 }
@@ -116,8 +120,6 @@ const scrapeHistoryAndEvents = async () => {
   getHistory();
   await delay(4000);
   getQueue();
-  await delay(7000);
-  connection.end();
 };
 
 scrapeHistoryAndEvents();
