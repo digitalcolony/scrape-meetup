@@ -10,7 +10,7 @@
         "dotenv": "^8.2.0",
         "fs": "^0.0.1-security",
         "ftp": "^0.3.10",
-        "nodemailer": "^6.4.10",
+        "nodemailer": "^6.4.18",
         "mysql": "^2.18.1"
     },
     "devDependencies": {},
