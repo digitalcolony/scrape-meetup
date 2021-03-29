@@ -5,7 +5,7 @@
     "main": "OLD_getEventDetailJSON.js",
     "dependencies": {
         "axios": "^0.20.0",
-        "basic-ftp": "^4.6.1",
+        "basic-ftp": "^4.6.6",
         "cheerio": "^1.0.0-rc.3",
         "dotenv": "^8.2.0",
         "fs": "^0.0.1-security",
