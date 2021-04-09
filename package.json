@@ -6,7 +6,7 @@
     "dependencies": {
         "axios": "^0.20.0",
         "basic-ftp": "^4.6.1",
-        "cheerio": "^1.0.0-rc.3",
+        "cheerio": "^1.0.0-rc.6",
         "dotenv": "^8.2.0",
         "fs": "^0.0.1-security",
         "ftp": "^0.3.10",
