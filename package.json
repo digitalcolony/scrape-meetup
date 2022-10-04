@@ -4,7 +4,7 @@
     "description": "🏴‍☠️ Web scrape Meetup.com now that they have locked down their API. 😤",
     "main": "OLD_getEventDetailJSON.js",
     "dependencies": {
-        "axios": "^0.20.0",
+        "axios": "^1.0.0",
         "basic-ftp": "^4.6.1",
         "cheerio": "^1.0.0-rc.3",
         "dotenv": "^8.2.0",
